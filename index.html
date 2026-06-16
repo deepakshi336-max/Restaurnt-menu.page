@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Aroma </title>
+
+    <style>
+
+        html{scroll-behavior: smooth;}
+
+        *{margin: 0;
+         padding: 0;
+        box-sizing: border-box;}
+
+        body{ background: #111;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;}
+
+        nav{ display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 20px;
+              position: relative;}
+
+        nav h2 {color: #ff8c00;
+                font-size: 24px;}
+
+        .menu-btn{ color: #ff8c00;
+            font-size: 30px;
+            cursor: pointer;}
+
+        .hero{ 
+                   display: flex;
+                   flex-direction: column;
+                   justify-content: center;
+                   align-items: center;
+                   text-align: center;
+                   padding: 20px;
+                   position: relative;}
+
+        .hero h1{ font-size:42px;
+                    color: #ffffff;
+                    margin-bottom: 15px;
+                    text-shadow: 0 0 15px rgba(255,140,0,0.5);}
+
+       .hero p{ font-size: 18px;
+                    color: #cccccc;
+                    margin-bottom: 25px;}
+
+        .hero button{ background: #ff8c00;
+                         color: white;
+                          border: none;
+                          padding:12px 25px;
+                          border-radius: 30px;
+                          font-size: 16px;
+                          cursor: pointer;
+                          transition: 0.3s;}
+
+        .stats { display: grid;
+                     grid-template-columns: repeat(2,1fr);
+                     gap: 15px;
+                     padding: 20px;}
+
+        .stats div{background: #1e1e1e;
+                        padding: 20px;
+                        text-align: center;
+                        border-radius: 12px;}
+
+        .menu{padding: 40px 20px;}
+        .menu h2 {text-align: center;
+                 color: #ff8c00;
+                 margin-bottom: 35px ;}
+
+        .menu-items{transition: 0.3s ease;}
+        .menu-items:hover{transform: translateY(-8px);
+                box-shadow: 0 0 20px rgba(255.140,0,0.5);}
+
+        .menu-grid{display: grid;
+                      grid-template-columns: repeat(2,1fr);
+                      gap: 15px;}
+
+        .menu-item img{width: 100%;
+                           height: 180px;
+                           object-fit: cover;}
+
+        .card{background: #1e1e1e;
+                 padding: 20px;
+                 border-radius: 15px;
+                 text-align: center;
+                 transition: 0.3s;
+                 min-height: 120px;
+                 justify-content: center;
+                 align-items: center;
+                 flex-direction: column;
+                 display: flex;}
+
+       .card:hover{ transform:translateY(-5px)}
+
+       .card h3{margin-bottom: 10px;}
+
+       .card p{ margin-top: 10px;
+                   color: #ff8c00;
+                   font-weight: bold;}
+
+       .about{padding: 40px 20px;
+                  text-align: center;
+                  
+                  background-size: cover;
+                  background-position: center;
+                  position: relative;
+                  background-color: #1e1e1e;
+                  border-radius: 15px;}
+
+        .about h2{color: #ff8c00;
+                     margin-bottom: 20px;}
+
+        .about p{background: #1e1e1e;
+                padding: 25px;
+                border-radius: 15px;
+                line-height: 1.7;
+                font-style: italic;}
+
+        .about::before{content: "";
+                          position: absolute;
+                          inset: 0;
+                          background-color: rgba(0,0,0,0.7);}
+
+        .about *{position: relative;
+                     z-index: 1;}
+
+        .reviews{padding: 40px 20px;
+            background:url(hero.jpg) ;
+            background-size: cover;
+            background-position: center;
+            background-color: #1e1e1e;
+             border-radius: 15px;
+            position: relative; }
+
+       .reviews h2{text-align: center;
+                       color: #ff8c00;
+                       margin-bottom: 20px;}
+
+       .review-card{background:rgba(30,30,30,0.85);
+                padding: 20px;
+                backdrop-filter: blur(5px);
+                border-radius: 15px;
+                margin-bottom: 15px;}
+
+         .reviews::before{content: "";
+                             position: absolute;
+                             inset: 0;
+                           background-color: rgba(0,0,0,0.65);}
+
+            .reviews *{position: relative;
+                        z-index: 1;}
+
+            .contact{padding: 40px 20px;
+                    
+                    text-align: center;}
+
+            .contact h2{color: #ff8c00;
+                        margin-bottom: 20px;}
+
+            .contact p{margin-bottom: 10px;}
+
+            footer{ background: #1e1e1e;
+                    text-align: center;
+                    border-top: 1px solid rgba(255,140,0,0.3);
+                     padding: 30px 20px;}
+
+            .footer p{color: #bbb;
+                      margin: 8px 0;}
+
+            footer h3{color: #ff8c00;
+                      margin-bottom: 10px;}
+
+            .mobile-menu{ display: none;
+                background: #1e1e1e;
+                padding: 15px;
+                position: fixed;
+                top: 70px;
+                right: 20px;
+                width: 180px;
+                z-index: 99999;
+                border-radius: 12px;
+                box-shadow: 0 0 15px rgba(0,0,0,0.5);}
+
+            .mobile-menu a{display: block;
+                color: white;
+                text-decoration: none;
+                margin: 15px 0;
+                padding: 10px 0;}
+
+            .hero{background:url(hero.jpg) ;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                min-height: 100vh;
+                position: relative;
+                z-index: auto;}
+
+            .hero-content{position: relative;
+                         z-index: 1;}
+
+
+            .hero::before{content: "";
+                         position: absolute;
+                         inset: 0;
+                         background: rgba(0,0,0,0.6);
+                         z-index: 0;}
+
+            .hero *{ position: relative;
+                     z-index:1;}
+
+            .card img{width: 100%;
+                      height:180px;
+                      object-fit:cover;
+                      border-radius:10px;
+                      margin-bottom:10px;
+                      max-width: 100%;
+                      display: block;}
+
+            .menu-grid{gap: 35px;}
+
+            .card{transition:0.3s;
+                 display: flex;
+                 position: relative;
+                 min-height: 300px;
+                 flex-direction: column;
+                 margin-top: 20px; }
+
+            .card:hover{transform:translateY(-5px);
+            box-shadow: 0 0 15px #ff8c00;}
+            .card p{margin-top: auto;}
+
+            .hero button:hover{background:#ffa733}
+            img{max-width: 100%;
+                display: block;}
+
+            .hero img{width: 100%;
+                height: 100vh;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                 text-wrap: balance;}
+
+            .hero h1{font-size: 3rem;
+                color: #ffffff;
+                margin-bottom: 15px;
+                text-shadow: 0 0 15px rgba(255, 140, 0, 0.056);}
+
+            .nav-links{position: fixed;
+                top: 70px;
+                right: 0;
+                z-index: 99999;
+                background-color: #111;
+                width: 250px;}
+
+            button:hover{transform:scale(1.05)}
+            button{transform: 0.3s;}
+
+            #toast{position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #6f4e37;
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-size: 16px;
+                opacity: 0;
+                transition:0.5s ;
+                z-index: 1000;}
+
+            #toast.show{opacity: 1;}
+
+            .heart{font-size: 24px;
+                cursor: pointer;
+                position: absolute;
+                top: 240px;
+                right: 10px;
+                transition: 0.3s;
+                z-index: 10;
+                user-select: none;}
+
+            .heart:hover{transform: scale(1.2);}
+
+            .heart.active{color: red;}
+            .menu-card{position: relative;}
+            .menu-card:hover{transform: translateY(-12px);
+                box-shadow: 0 0 30px rgba(255,140,0,.5);}
+                
+
+            
+
+          </style>
+</head>
+<body>
+    <nav> 
+        <h2>Cafe Aroma</h2>
+
+          <div class="menu-btn" onclick="toggleMenu()">≡</div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <section class="hero"  id="home">
+          
+          <h1>Cafe Aroma</h1>
+
+        <p>Fresh Coffee ● Delicious Food  ● Cozy Moments</p>
+
+        <a href="#menu">
+           <button>Order Now </button>
+        </a>
+
+    </section>
+
+    <section class="stats">
+        <div>☕ 50+ Drinks</div>
+        <div>🍕 30+ Dishes</div>
+        <div>⭐ 4.9 Rating</div>
+        <div>🧑‍🤝‍🧑 1000+ Customers</div>
+    </section>
+
+    <section class="menu" id="menu">
+        <h2>Our Menu</h2>
+
+        <div class="menu-grid">
+            <div class="card">
+
+                <img src="coffee.jpg"alt="Cappuccino">
+                <span class="heart">🤍</span>
+
+                <h3> Cappuccino</h3>
+                <p>&#8377;149</p>
+            </div>
+
+            <div class="card">
+                <img src="pizza.jpg" alt="Pizza">
+                <span class="heart">🤍</span>
+                <h3> Pizza</h3>
+                 <p>&#8377;299</p>
+            </div>
+
+         <div class="card">
+               <img src="burger.jpg" alt="Burger">
+               <span class="heart">🤍</span>
+               <h3> Burger</h3>
+               <p>&#8377;199</p>
+         </div>
+
+         <div class="card">
+            <img src="cake.jpg" alt="Cake">
+            <span class="heart">🤍</span>
+            <h3>Cake</h3>
+            <p>&#8377;249</p>
+         </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About Us</h2>
+         <p> "BENVENUTI A CAFE AROMA".......!!    
+            At Cafe Aroma, we believe every cup of coffee^ tells a story.
+            Our passion for quality coffee,delicious food, and warm hospitality creates an unforgetable experience
+            for every guest.😁💕☕
+        </p>
+     </section>
+
+    <section class="reviews">
+        <h2>Customer Reviews</h2>
+
+        <div class="review-card">
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <p>Amazing coffee and crazy atmosphere.</p>
+        </div>
+
+        <div class="review-card">
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <p>Best pizza and friendly staff.</p>
+        </div>
+
+        <div class="review-card">
+            <h3>⭐⭐⭐⭐⭐</h3>
+            <p>Highly Recommended.</p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Us </h2>
+        <p>📞 +91 9876543210</p>
+        <p>📧 cafearoma@gmail.com</p>
+        <p>📍 New Delhi,India</p>
+    </section>
+
+    <footer>
+        <h3>Cafe Aroma</h3>
+        <p>©️ 2026 All Right Reserved</p>
+        <p>Designed & Developed by Deepakshi 💖</p>
+    </footer>
+
+    <script>
+        function toggleMenu(){
+            let menu= document.getElementById("mobileMenu");
+            if(menu.style.display === "block"){menu.style.display="none"}
+            
+            else{
+                menu.style.display="block";}}
+                
+    </script>
+
+    <div id="toast">☕Welcome to Cafe Aroma!</div>
+
+    <script>
+    const toast = document.getElementById("toast");
+    window.onload=function(){toast.classList.add("show");
+      setTimeout(() => {toast.classList.remove("show");},3000);};
+      </script>
+
+
+    <script>
+        const hearts = document.querySelectorAll(".heart");
+        hearts.forEach(heart => {heart.addEventListener("click",function(){this.classList.toggle("active");
+        if(this.classList.contains("active")){this.innerHTML="❤️";}
+        
+      else{this.innerHTML="🤍";}});});
+    </script>
+
+</body>
+
+</html>
